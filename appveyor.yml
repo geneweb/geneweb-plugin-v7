@@ -51,7 +51,6 @@
     - sh: 'opam init --compiler=4.09.1'
     - sh: 'eval $(opam config env)'
     - sh: 'opam update'
-    - sh: 'opam pin add unidecode.0.2.0'
     - sh: 'opam pin add geneweb https://github.com/geneweb/geneweb.git'
 
   build_script:
