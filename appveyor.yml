@@ -6,6 +6,10 @@
   platform:
     - x64
 
+  init:
+    - ps: $env:PLUGIN_VERSION = $env:APPVEYOR_REPO_COMMIT.SubString(0,8)
+    - ps: $env:GW_VERSION=(git ls-remote https://github.com/geneweb/geneweb.git HEAD | cut -c1-8)
+
   environment:
     CYG_BASH: '%CYG_ROOT%/bin/bash -lc'
     matrix:
@@ -51,13 +55,11 @@
     - sh: 'opam pin add geneweb https://github.com/geneweb/geneweb.git'
 
   build_script:
-    - sh: 'export PKG_VERSION=`git ls-remote https://github.com/gturri/dokuJClient.git HEAD | cut -f1 | cut -c1-8`'
     - sh: 'dune build --release @plugin'
-    - sh: 'zip -r geneweb-plugin-v7-$PKG_OS-$PKG_VERSION.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs'
-    - cmd: '%CYG_BASH% "export PKG_VERSION=`git ls-remote https://github.com/gturri/dokuJClient.git HEAD | cut -f1 | cut -c1-8`"'
+    - sh: 'zip -r geneweb-plugin-v7-$PKG_OS-$GW_VERSION-$PKG_VERSION.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs'
     - cmd: '%CYG_BASH% "cd ${APPVEYOR_BUILD_FOLDER} && dune build --release @plugin"'
-    - cmd: '%CYG_BASH% "zip -r geneweb-plugin-v7-$PKG_OS-$PKG_VERSION.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs"'
+    - cmd: '%CYG_BASH% "zip -r geneweb-plugin-v7-$PKG_OS-$GW_VERSION.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs"'
 
   artifacts:
-    - path: geneweb-plugin-v7-%PKG_OS%-%PKG_VERSION%.zip
+    - path: geneweb-plugin-v7-%PKG_OS%-%GW_VERSION%.zip
       name: v7 plugin for GeneWeb
