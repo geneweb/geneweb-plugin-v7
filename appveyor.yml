@@ -29,7 +29,6 @@
     - cmd: '%CYG_BASH% "tar -xf opam64.tar.xz && opam64/install.sh"'
     - cmd: '%CYG_BASH% "opam init -a mingw https://github.com/fdopen/opam-repository-mingw.git#opam2 -c 4.09.1+mingw64c --disable-sandboxing"'
     - cmd: '%CYG_BASH% "opam update"'
-    - cmd: '%CYG_BASH% "opam pin add unidecode.0.2.0"'
     - cmd: '%CYG_BASH% "opam pin add geneweb https://github.com/geneweb/geneweb.git"'
     - cmd: '%CYG_BASH% "eval $(ocaml-env cygwin)"'
     # unix environnement
