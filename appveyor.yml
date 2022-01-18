@@ -60,5 +60,15 @@
     - cmd: 7z a geneweb-plugin-v7-$PKG_OS-$GW_VERSION-$PLUGIN_VERSION.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs
 
   artifacts:
-    - path: geneweb-plugin-v7-%PKG_OS%-%GW_VERSION%.zip
+    - path: geneweb-plugin-v7-%PKG_OS%-%GW_VERSION%-$PLUGIN_VERSION.zip
       name: v7 plugin for GeneWeb
+
+  deploy:
+    release: 'v7 plugin (%PLUGIN_VERSION%) for GeneWeb (%GW_VERSION%)'
+    description: 'GeneWeb v7 plugin %PLUGIN_VERSION% / %GW_VERSION% built by appveyor'
+    provider: GitHub
+    auth_token:
+      secure: nnAfleN0F5yUmOi+I+mzgccorlJdqFJk5Th+5NCbsQGu0mTxeH2MCGpdOhe1Xz3+
+    artifact: geneweb-plugin-v7-%PKG_OS%-%GW_VERSION%-$PLUGIN_VERSION.zip
+    draft: false
+    prerelease: true
