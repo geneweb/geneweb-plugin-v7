@@ -58,4 +58,5 @@ Modified behaviour:
 
 ## Copyright
 
-Plugin written by H Gouraud and A2
+Plugin written by H Gouraud and A2.
+Distributed under the [GPLv2](LICENSE.MD) license.
