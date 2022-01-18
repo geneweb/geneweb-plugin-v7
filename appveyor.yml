@@ -57,10 +57,10 @@
     - sh: 'dune build --release @plugin'
     - sh: 'zip -r geneweb-plugin-v7-$PKG_OS-$GW_VERSION-$PLUGIN_VERSION.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs'
     - cmd: '%CYG_BASH% "cd ${APPVEYOR_BUILD_FOLDER} && dune build --release @plugin"'
-    - cmd: 7z a geneweb-plugin-v7-$PKG_OS-$GW_VERSION-$PLUGIN_VERSION.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs
+    - cmd: 7z a geneweb-plugin-v7-%PKG_OS%-%GW_VERSION%-%PLUGIN_VERSION%.zip _build/default/src/assets/ _build/default/src/plugin_v7.cmxs
 
   artifacts:
-    - path: geneweb-plugin-v7-%PKG_OS%-%GW_VERSION%-$PLUGIN_VERSION.zip
+    - path: geneweb-plugin-v7-%PKG_OS%-%GW_VERSION%-%PLUGIN_VERSION%.zip
       name: v7 plugin for GeneWeb
 
   deploy:
