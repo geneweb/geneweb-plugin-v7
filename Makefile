@@ -23,6 +23,7 @@ distrib: build
 	fi;
 
 install: distrib
+	$(RM) -r $(GW_DIR)/plugins/v7
 	cp -R $(DISTRIB_DIR)/v7 $(GW_DIR)/plugins
 
 clean:
