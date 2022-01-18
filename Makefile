@@ -20,7 +20,10 @@ distrib: build
 		if [ -f $(BUILD_DIR)/src/META ] ; then \
 			cp $(BUILD_DIR)/src/META $(DISTRIB_DIR)/v7; \
 		fi; \
-	fi; \
+	fi;
+
+install: distrib
+	cp -R $(DISTRIB_DIR)/v7 $(GW_DIR)/plugins
 
 clean:
 	dune clean
