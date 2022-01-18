@@ -58,4 +58,4 @@ Modified behaviour:
 
 ## Copyright
 
-Plugin written by H Gouraud
+Plugin written by H Gouraud and A2
