@@ -1,24 +1,39 @@
 # V7
 
-V7 is a GeneWeb v7 plugin providing new template functions and modified
-behaviour for several commands.
+V7 is a GeneWeb plugin providing new template functions, modified
+behaviour and updated templates for several commands.
 
 ## Installation (for users)
 
-Activate the plugin mechanism at gwd launch time with
-```
-gwd ... -plugins path_to_plugins
-```
-This is probably already done as several v7 functions are provided
-through a plugin mechanism (cgl, export, xhtml, ...)
+Download the from the archive corresponding to your GeneWeb version
+from [github](https://github.com/geneweb/geneweb-plugin-v7/releases).
 
-Add v7 to the active plugin list in your .gwf file:
+Extract the archive where your GeneWeb plugins are located.
+
+If you launch `gwd` with this command:
+
+```
+gwd ... -plugins -unsafe /path/to/plugins
+```
+
+you must extract the content of the archive in `/path/to/plugins/v7`
+
+## Enable the plugin on you base
+
+Add `v7` to the list of active plugins in your `.gwf` file. For example:
 
 ```
 plugins=cgl,export,forum,no_index,xhtml,v7
 ```
 
-## Operations
+You can also force a plugin when launching `gwd` so it will be enabled
+even if `.gwf` file does not indicate to do so.
+
+```
+gwd ... -plugins -unsafe -force /path/to/plugins
+```
+
+## Features
 
 New template functions:
 - %cousins.v1.v2; counts the number of cousins up v1 levels then down v2 levels
@@ -40,7 +55,7 @@ Modified behaviour:
 - the command m=DOC is an extension of the command m=SRC. It will
   accept .pdf and .html extensions (for compatibility, .txt extensions
   are also accepted). Filename may include sub_folders.
-  
+
 ## Copyright
 
-Plugin written by H Gouraud 
+Plugin written by H Gouraud

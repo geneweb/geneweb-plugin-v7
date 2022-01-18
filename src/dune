@@ -5,7 +5,11 @@
 
 (library
   (name plugin_v7_lib)
-  (libraries geneweb geneweb.gwd_lib geneweb.util)
+  (libraries
+    geneweb
+    geneweb.gwd_lib
+    geneweb.util
+  )
   (modules
     v7_cousins
     v7_descend
@@ -29,5 +33,3 @@
   (modes (native plugin))
   (modules plugin_v7)
 )
-
-(alias (name plugin) (deps plugin_v7.cmxs))
