@@ -64,8 +64,8 @@
       name: v7 plugin for GeneWeb
 
   deploy:
-    release: 'v7 plugin (%PLUGIN_VERSION%) for geneweb (%GW_VERSION%)'
-    description: 'V7 plugin %PLUGIN_VERSION% / GeneWeb %GW_VERSION% built by appveyor'
+    release: 'v7 plugin v%PLUGIN_VERSION% for geneweb v%GW_VERSION%'
+    description: 'V7 plugin %PLUGIN_VERSION% / GeneWeb %GW_VERSION%. Built by appveyor'
     provider: GitHub
     auth_token:
       secure: nnAfleN0F5yUmOi+I+mzgccorlJdqFJk5Th+5NCbsQGu0mTxeH2MCGpdOhe1Xz3+
